@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="root" prefHeight="844.0" prefWidth="1470.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medical.Home">
+   <left>
+      <AnchorPane prefHeight="720.0" prefWidth="241.0" style="-fx-background-color: #1530CC;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="480.0" prefWidth="259.0" style="-fx-background-color: #1530CC;" AnchorPane.bottomAnchor="161.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Pane prefHeight="80.0" prefWidth="241.0" />
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#onOpenNotes" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: #1530CC;" text="Notes" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="46.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/note.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="22.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#onCalculater" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: #1530CC;" text="Calculator" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="46.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/calculator.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="22.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#onCalculater" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: #1530CC;" text="Calendar" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="46.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/calendar.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="22.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="90.0" mnemonicParsing="false" onAction="#onAppointment" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: #1530CC;" text="Appointment " textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="46.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/appointment.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="22.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="288.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: #1530CC;" text="Money" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="46.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/money.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="22.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <HBox layoutY="506.0" prefHeight="136.0" prefWidth="259.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <VBox prefHeight="162.0" prefWidth="131.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="81.0" prefWidth="131.0" style="-fx-background-color: #1530CC;">
+                           <graphic>
+                              <ImageView fitHeight="67.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/settings.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label alignment="CENTER" prefHeight="45.0" prefWidth="131.0" text="Setting" textAlignment="CENTER" textFill="#fffcfc" textOverrun="CLIP">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="162.0" prefWidth="131.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#onOpenAbout" prefHeight="81.0" prefWidth="131.0" style="-fx-background-color: #1530CC;">
+                           <graphic>
+                              <ImageView fitHeight="68.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/about.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label alignment="CENTER" prefHeight="45.0" prefWidth="131.0" text="About" textAlignment="CENTER" textFill="#fffcfc" textOverrun="CLIP">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="793.0" prefWidth="1007.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="-1.0" prefHeight="809.0" prefWidth="1007.0">
+               <children>
+                  <ListView fx:id="wattingList" layoutX="38.0" layoutY="120.0" prefHeight="569.0" prefWidth="920.0" stylesheets="@Css/listView.css" />
+                  <HBox layoutX="40.0" layoutY="42.0" prefHeight="46.0" prefWidth="915.0">
+                     <children>
+                        <AnchorPane prefHeight="46.0" prefWidth="50.0">
+                           <children>
+                              <Label alignment="CENTER" layoutY="15.0" prefHeight="20.0" prefWidth="48.0" text="..." textFill="#1632cc">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="46.0" prefWidth="137.0">
+                           <children>
+                              <Label alignment="CENTER" layoutX="8.0" layoutY="14.0" prefHeight="17.0" prefWidth="108.0" text="Number" textFill="#1632cc">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="46.0" prefWidth="370.0">
+                           <children>
+                              <Label alignment="CENTER" layoutX="55.0" layoutY="14.0" prefHeight="17.0" prefWidth="108.0" text="First Name" textFill="#1632cc">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="147.0" layoutY="10.0" prefHeight="46.0" prefWidth="370.0">
+                           <children>
+                              <Label alignment="CENTER" layoutX="55.0" layoutY="14.0" prefHeight="17.0" prefWidth="108.0" text="Last Name" textFill="#1632cc">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="422.0" layoutY="10.0" prefHeight="46.0" prefWidth="300.0">
+                           <children>
+                              <Label alignment="CENTER" layoutX="20.0" layoutY="14.0" prefHeight="17.0" prefWidth="108.0" text="Stutus" textFill="#1632cc">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="46.0" prefWidth="311.0">
+                           <children>
+                              <Label alignment="CENTER" layoutX="26.0" layoutY="14.0" prefHeight="17.0" prefWidth="108.0" text="Phone" textFill="#1632cc">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <Button layoutX="38.0" layoutY="702.0" mnemonicParsing="false" onAction="#onClear" prefHeight="48.0" prefWidth="920.0" style="-fx-background-color: #2d4059;" text="Clear" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children></AnchorPane>
+   </center>
+   <top>
+      <AnchorPane prefHeight="36.0" prefWidth="1302.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="59.0" prefWidth="241.0" style="-fx-background-color: #1530CC;">
+               <children>
+                  <ImageView fitHeight="29.0" fitWidth="31.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/nurse.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="BASELINE_LEFT" layoutX="50.0" layoutY="18.0" prefHeight="23.0" prefWidth="174.0" text="As.Karima " textFill="WHITE">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Button layoutX="1236.0" layoutY="12.0" mnemonicParsing="false" onAction="#onClose" prefHeight="36.0" prefWidth="52.0" style="-fx-background-color: #f4f4f4;" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="12.0">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/eror.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="1139.0" layoutY="12.0" mnemonicParsing="false" onAction="#onMinButton" prefHeight="36.0" prefWidth="52.0" style="-fx-background-color: #f4f4f4;" AnchorPane.rightAnchor="111.0" AnchorPane.topAnchor="12.0">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/minimize.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="1191.0" layoutY="12.0" mnemonicParsing="false" onAction="#onMaxButton" prefHeight="36.0" prefWidth="52.0" style="-fx-background-color: #f4f4f4;" AnchorPane.rightAnchor="59.0" AnchorPane.topAnchor="12.0">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/html.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label alignment="CENTER" layoutX="568.0" layoutY="11.0" prefHeight="37.0" prefWidth="307.0" text="Medical Application" textFill="#1632cc">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="31.0" />
+               </font>
+            </Label>
+            <Button layoutX="1255.0" layoutY="12.0" mnemonicParsing="false" onAction="#onOpenListPatientOfWaitingRoom" prefHeight="36.0" prefWidth="52.0" style="-fx-background-color: #f4f4f4;" AnchorPane.rightAnchor="163.0" AnchorPane.topAnchor="12.0">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/bell.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <ImageView fitHeight="12.0" fitWidth="14.0" layoutX="1289.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="169.0" AnchorPane.topAnchor="11.0">
+               <image>
+                  <Image url="@img/dot.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </top>
+   <right>
+      <AnchorPane prefHeight="200.0" prefWidth="222.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton layoutX="20.0" layoutY="120.0" onAction="#onAdd" prefHeight="106.0" prefWidth="150.0" style="-fx-background-color: #00bcd4;" text="Add" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="30.0">
+               <graphic>
+                  <ImageView fitHeight="46.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/plus.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="20.0" layoutY="272.0" onAction="#onDeletePatient" prefHeight="106.0" prefWidth="150.0" style="-fx-background-color: #2d4059;" text="Delete" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="30.0">
+               <graphic>
+                  <ImageView fitHeight="55.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/delete1.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="20.0" layoutY="429.0" onAction="#onOpenModify" prefHeight="106.0" prefWidth="150.0" style="-fx-background-color: #ffd571;" text="Modify" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="30.0">
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/pencil.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="20.0" layoutY="580.0" onAction="#onConsult" prefHeight="106.0" prefWidth="150.0" style="-fx-background-color: #e11d74;" text="Consulte" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="30.0">
+               <graphic>
+                  <ImageView fitHeight="51.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/login.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="16.0" />
+               </font>
+            </JFXButton>
+            <Label alignment="CENTER" layoutX="19.0" layoutY="24.0" prefHeight="74.0" prefWidth="174.0" text="WAITING ROOM" textFill="#1632cc">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="21.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+   </right>
+</BorderPane>

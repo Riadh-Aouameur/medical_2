@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="302.0" prefWidth="673.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medical.ControllerMModify">
+   <children>
+      <TextField fx:id="fFirstName" layoutX="123.0" layoutY="110.0" prefHeight="31.0" prefWidth="195.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <Label layoutX="25.0" layoutY="115.0" prefHeight="22.0" prefWidth="98.0" text="First Name" textFill="#1632cc">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="fLastName" layoutX="123.0" layoutY="171.0" prefHeight="31.0" prefWidth="195.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="fPhone" layoutX="448.0" layoutY="171.0" prefHeight="31.0" prefWidth="195.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <Label layoutX="25.0" layoutY="176.0" prefHeight="22.0" prefWidth="98.0" text="Last Name" textFill="#1632cc">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="329.0" layoutY="176.0" prefHeight="22.0" prefWidth="84.0" text="Phone" textFill="#1632cc">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="iMale" layoutX="123.0" layoutY="219.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="143.0" text="Male" textFill="#1632cc">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="iFemale" layoutX="123.0" layoutY="253.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="143.0" text="Female" textFill="#1632cc">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font>
+      </RadioButton>
+      <JFXButton layoutX="513.0" layoutY="229.0" onAction="#onADDList" prefHeight="47.0" prefWidth="129.0" style="-fx-background-color: #ffd571;" text="Modify" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="17.0" />
+         </font>
+      </JFXButton>
+      <DatePicker fx:id="fAppointment" layoutX="448.0" layoutY="110.0" prefHeight="31.0" prefWidth="195.0" />
+      <Label layoutX="329.0" layoutY="115.0" prefHeight="22.0" prefWidth="111.0" text="Appointement " textFill="#1632cc">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font>
+      </Label>
+      <AnchorPane prefHeight="66.0" prefWidth="673.0" style="-fx-background-color: #ffd571;">
+         <children>
+            <ImageView fitHeight="47.0" fitWidth="56.0" layoutX="22.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/pencil.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="85.0" layoutY="25.0" prefHeight="22.0" prefWidth="111.0" text="Modify" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="594.0" layoutY="17.0" mnemonicParsing="false" onAction="#onExit" style="-fx-background-color: #ffd571;">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/eror.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

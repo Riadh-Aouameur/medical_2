@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox prefHeight="46.0" prefWidth="915.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medical.ControllerListItem">
+   <children>
+      <AnchorPane prefHeight="46.0" prefWidth="50.0">
+         <children>
+            <ImageView fx:id="img" fitHeight="34.0" fitWidth="46.0" layoutX="6.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/patient.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="46.0" prefWidth="137.0">
+         <children>
+            <Label fx:id="number" alignment="CENTER" layoutX="15.0" layoutY="14.0" prefHeight="17.0" prefWidth="108.0" text="1" textFill="#1530cc">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="46.0" prefWidth="370.0">
+         <children>
+            <Label fx:id="firstName" alignment="CENTER" layoutX="56.0" layoutY="14.0" prefHeight="17.0" prefWidth="108.0" text="Riadh" textFill="#1530cc">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="147.0" layoutY="10.0" prefHeight="46.0" prefWidth="370.0">
+         <children>
+            <Label fx:id="lastName" alignment="CENTER" layoutX="56.0" layoutY="14.0" prefHeight="17.0" prefWidth="108.0" text="Aouameur" textFill="#1530cc">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="422.0" layoutY="10.0" prefHeight="46.0" prefWidth="300.0">
+         <children>
+            <Label fx:id="status" alignment="CENTER" layoutX="21.0" layoutY="14.0" prefHeight="17.0" prefWidth="108.0" text="Stutus" textFill="#1530cc">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="46.0" prefWidth="311.0">
+         <children>
+            <Label fx:id="phone" alignment="CENTER" layoutX="15.0" layoutY="14.0" prefHeight="17.0" prefWidth="108.0" text="0795531019" textFill="#1530cc">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>

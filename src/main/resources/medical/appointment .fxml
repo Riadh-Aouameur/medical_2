@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="798.0" prefWidth="1302.0" style="-fx-background-color: #FFf;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medical.ControllerAppointment">
+   <children>
+      <ListView fx:id="waitingList" layoutX="48.0" layoutY="156.0" prefHeight="569.0" prefWidth="977.0" />
+      <HBox layoutX="48.0" layoutY="96.0" prefHeight="46.0" prefWidth="977.0">
+         <children>
+            <AnchorPane prefHeight="46.0" prefWidth="50.0">
+               <children>
+                  <Label alignment="CENTER" layoutY="15.0" prefHeight="20.0" prefWidth="48.0" text="..." textFill="#1632cc">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="46.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="8.0" layoutY="14.0" prefHeight="17.0" prefWidth="108.0" text="ID" textFill="#1632cc">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="46.0" prefWidth="175.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="34.0" layoutY="14.0" prefHeight="17.0" prefWidth="108.0" text="First Name" textFill="#1632cc">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="147.0" layoutY="10.0" prefHeight="46.0" prefWidth="175.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="33.0" layoutY="14.0" prefHeight="17.0" prefWidth="108.0" text="Last Name" textFill="#1632cc">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="422.0" layoutY="10.0" prefHeight="46.0" prefWidth="150.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="21.0" layoutY="14.0" prefHeight="17.0" prefWidth="108.0" text="DoteOne" textFill="#1632cc">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="614.0" layoutY="10.0" prefHeight="46.0" prefWidth="150.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="21.0" layoutY="14.0" prefHeight="17.0" prefWidth="108.0" text="DoteTwo" textFill="#1632cc">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="830.0" layoutY="10.0" prefHeight="46.0" prefWidth="166.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="29.0" layoutY="14.0" prefHeight="17.0" prefWidth="108.0" text="Phone" textFill="#1632cc">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <JFXButton layoutX="1075.0" layoutY="154.0" onAction="#onAdd" prefHeight="106.0" prefWidth="150.0" style="-fx-background-color: #00bcd4;" text="Add" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="46.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/plus.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="Arial Rounded MT Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="1075.0" layoutY="303.0" onAction="#onDeletePatient" prefHeight="106.0" prefWidth="150.0" style="-fx-background-color: #2d4059;" text="Delete" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="55.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/delete1.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="Arial Rounded MT Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="1075.0" layoutY="473.0" onAction="#onOpenModify" prefHeight="106.0" prefWidth="150.0" style="-fx-background-color: #ffd571;" text="Modify" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="48.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/pencil.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="Arial Rounded MT Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <Label alignment="BASELINE_LEFT" layoutX="48.0" layoutY="34.0" prefHeight="46.0" prefWidth="298.0" text="Appointment " textFill="#1632cc">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="31.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

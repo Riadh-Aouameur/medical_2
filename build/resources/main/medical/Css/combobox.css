@@ -1,0 +1,8 @@
+.combo-box-base
+{
+
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1530CC, #5EE6E4);
+    -fx-background-radius: 0 0 9 0, 0 0 8 0, 0 0 8 0;
+     -fx-background-insets: 1, 2, 3;
+     -fx-padding: 5px;
+}

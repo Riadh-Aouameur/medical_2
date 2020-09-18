@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="76.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medical.ControllerWaitList">
+   <children>
+      <ImageView fx:id="img" fitHeight="51.0" fitWidth="48.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../AppDoctor/src/main/resources/medical/img/patient.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="tPatient" layoutX="73.0" layoutY="14.0" prefHeight="15.0" prefWidth="176.0" text="Patient : Riadh Aoameur" textFill="#1530cc">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="tPhone" layoutX="73.0" layoutY="31.0" prefHeight="12.0" prefWidth="168.0" text="Phone : 0795531019" textFill="#1530cc">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="tNb" layoutX="73.0" layoutY="46.0" prefHeight="15.0" prefWidth="168.0" text="ID : 10234523" textFill="#1530cc">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="iStatus" fitHeight="15.0" fitWidth="18.0" layoutX="53.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../AppDoctor/src/main/resources/medical/img/dot.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

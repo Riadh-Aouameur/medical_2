@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+    id 'com.github.johnrengelman.shadow' version '6.0.0'
+}
+
+repositories {
+    mavenCentral()
+
+}
+group 'some.group'
+version '0.0.1-SNAPSHOT'
+
+
+
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'com.jfoenix:jfoenix:9.0.8'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.48'
+    compile group: 'org.controlsfx', name: 'controlsfx', version: '8.0.5'
+    shadow 'junit:junit:3.8.2'
+
+}
+javafx{
+    version ="11.0.2"
+    modules = [ 'javafx.controls' ,'javafx.fxml']
+
+}
+task testJar(type: Jar) {
+    manifest {
+        attributes 'Description': 'This is an application JAR'
+    }
+}
+jar {
+    manifest {
+        attributes 'Class-Path': '/libs/a.jar'
+    }
+}
+mainClassName='medical.Main'
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'java'
