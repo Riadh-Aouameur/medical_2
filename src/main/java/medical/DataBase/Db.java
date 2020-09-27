@@ -26,7 +26,7 @@ public class Db {
     public Db() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3305/medical2", "root", "1234");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3305/medical", "root", "1234");
             st = con.createStatement();
 
         } catch (Exception ex) {
@@ -95,14 +95,7 @@ public class Db {
                 observableList.add(patientForAppointment);
 
 
-//                appointmentID INT(11) AUTO_INCREMENT not null,
-//                        firstname VARCHAR(32) NOT NULL,
-//                lastname VARCHAR(32) NOT NULL,
-//                phone VARCHAR(32) ,
-//                        gender VARCHAR(10) ,
-//                        pstatus VARCHAR(10) NOT NULL,
-//                dateOne date NOT NULL,
-//                dateTwo date NOT NULL,
+
             }
         }catch(Exception ex){
             System.out.println(ex);
@@ -114,7 +107,76 @@ public class Db {
 
 
     }
+    public ObservableList <PatientForAppointment>getAppointmentWaiting(){
 
+        ObservableList <PatientForAppointment>observableList = FXCollections.observableArrayList();
+        try {
+
+            System.out.println("records from Db");
+            String query = "select * from  appointment where pstatus = 'Waiting'";
+
+            rs = st.executeQuery(query);
+            while(rs.next()){
+                int appointmentID= rs.getInt("appointmentID");
+                String firstNName= rs.getString("firstname");
+                String lastName= rs.getString("lastname");
+                String phone= rs.getString("phone");
+                String gender= rs.getString("gender");
+                String dateOne= rs.getString("dateOne");
+                String dateTwo= rs.getString("dateTwo");
+                String  status= rs.getString("pstatus");
+
+                PatientForAppointment patientForAppointment = new PatientForAppointment(appointmentID,firstNName,lastName,gender,phone,LocalDate.parse(dateOne),LocalDate.parse(dateTwo),status);
+                observableList.add(patientForAppointment);
+
+
+
+            }
+        }catch(Exception ex){
+            System.out.println(ex);
+        }
+        System.out.println("records from Db");
+
+        return  observableList ;
+
+
+
+    }
+    public ObservableList <PatientForAppointment>getAppointmentPass(){
+
+        ObservableList <PatientForAppointment>observableList = FXCollections.observableArrayList();
+        try {
+
+            System.out.println("records from Db");
+            String query = "select * from  appointment where pstatus = 'Pass'";
+
+            rs = st.executeQuery(query);
+            while(rs.next()){
+                int appointmentID= rs.getInt("appointmentID");
+                String firstNName= rs.getString("firstname");
+                String lastName= rs.getString("lastname");
+                String phone= rs.getString("phone");
+                String gender= rs.getString("gender");
+                String dateOne= rs.getString("dateOne");
+                String dateTwo= rs.getString("dateTwo");
+                String  status= rs.getString("pstatus");
+
+                PatientForAppointment patientForAppointment = new PatientForAppointment(appointmentID,firstNName,lastName,gender,phone,LocalDate.parse(dateOne),LocalDate.parse(dateTwo),status);
+                observableList.add(patientForAppointment);
+
+
+
+            }
+        }catch(Exception ex){
+            System.out.println(ex);
+        }
+        System.out.println("records from Db");
+
+        return  observableList ;
+
+
+
+    }
     public ObservableList <PatientForAppointment>getAppointmentToday(){
 
         ObservableList <PatientForAppointment>observableList = FXCollections.observableArrayList();
@@ -157,9 +219,19 @@ public class Db {
 
 
     }
+    public void setStatus() {
+
+        String sql = "UPDATE appointment SET pstatus = 'Pass' WHERE dateOne <"+"'"+LocalDate.now()+"'";
+        try {
+            st.executeUpdate(sql);
+        } catch (SQLException e) {
+            System.out.println("Erororrrrrrrrrrr");
+        }
+
+    }
     public void updateAppointment(PatientForAppointment patientForAppointment) {
         System.out.println("test");
-        String sql = "UPDATE appointment SET firstname ='" + patientForAppointment.getFirstName() + "',lastname = '" + patientForAppointment.getLastName() + "',phone='" + patientForAppointment.getPhone() + "',gender= '" + patientForAppointment.getGender() + "',pstatus = '" + patientForAppointment.getStatus() + "' WHERE appointmentID =" + patientForAppointment.getId();
+        String sql = "UPDATE appointment SET firstname ='" + patientForAppointment.getFirstName() +"'"+ ",dateOne ='"+ patientForAppointment.getDateOne() +"',lastname = '" + patientForAppointment.getLastName() + "',phone='" + patientForAppointment.getPhone() + "',gender= '" + patientForAppointment.getGender() + "',pstatus = '" + patientForAppointment.getStatus() + "' WHERE appointmentID =" + patientForAppointment.getId();
         try {
             st.executeUpdate(sql);
         } catch (SQLException e) {
@@ -463,6 +535,17 @@ public class Db {
         }
 
     }
+    public void updateStatus(PatientForWaitingRoom patientForWaitingRoom) {
+        System.out.println("test");
+        String sql = "UPDATE waiting SET pstatus = '" + patientForWaitingRoom.getStatus() + "' WHERE waitingID =" + patientForWaitingRoom.getNumber();
+        try {
+            st.executeUpdate(sql);
+        } catch (SQLException e) {
+            System.out.println("Error");
+
+        }
+
+    }
 
     public void clearWaiting(int id) {
         System.out.println("test");
@@ -475,6 +558,9 @@ public class Db {
         }
 
     }
+
+
+
     public void superClear(int max) {
         if (max != 0) {
             for (int i = 1; i<=max;i++) {

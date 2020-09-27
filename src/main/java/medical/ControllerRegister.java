@@ -40,6 +40,7 @@ public class ControllerRegister implements Initializable {
     public AnchorPane anchor_2;
     public AnchorPane anchor_1;
     public AnchorPane anchor_3;
+    public TextField iIdOfApproval;
     public ImageView i1;
     public ImageView i2;
     public ImageView i3;
@@ -112,6 +113,16 @@ public class ControllerRegister implements Initializable {
         iLastName.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches("\\sa-zA-Z*")) {
                 iLastName.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
+            }
+        });
+        tFirsstName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\sa-zA-Z*")) {
+                tFirsstName.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
+            }
+        });
+        tLastName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\sa-zA-Z*")) {
+                tLastName.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
             }
         });
 
@@ -212,7 +223,35 @@ public class ControllerRegister implements Initializable {
 
             }
         });
+        iIdOfApproval.focusedProperty().addListener(new ChangeListener<Boolean>()
+        {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> arg0, Boolean oldPropertyValue, Boolean newPropertyValue)
+            {
+                if (newPropertyValue)
+                {
+                    i10.setImage(null);
+                }
 
+            }
+        });
+        iIdOfApproval.addEventFilter(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                String character=event.getCharacter();
+
+                System.out.println(character);
+
+                iIdOfApproval.setText(iIdOfApproval.getText()+character);
+                iIdOfApproval.positionCaret((iIdOfApproval.getText()+character).length());
+                if(iIdOfApproval.getText().equals("id12345")){
+                    i10.setImage(new Image(getClass().getResourceAsStream("img/f.png")));
+                }else {
+                    i10.setImage(new Image(getClass().getResourceAsStream("img/eror.png")));
+                }
+
+                event.consume();
+            }});
 
         iConfirmPassword.addEventFilter(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>() {
             @Override
@@ -311,102 +350,107 @@ public class ControllerRegister implements Initializable {
     }
 
     public void onRegister(ActionEvent actionEvent) {
+        if(iIdOfApproval.getText().equals("id12345")){
+            if (iFirstName.getText()== null||iFirstName.getText().isEmpty()){
+                i1.setImage(new Image(getClass().getResourceAsStream("img/eror.png")));
 
-        if (iFirstName.getText()== null||iFirstName.getText().isEmpty()){
-            i1.setImage(new Image(getClass().getResourceAsStream("img/eror.png")));
+                firstName = null;
+            }else {
+                firstName = iFirstName.getText();
+            }
+            if (iLastName.getText()== null||iLastName.getText().isEmpty()){
+                i2.setImage(new Image(getClass().getResourceAsStream("img/eror.png")));
+                lastName= null;
+            }else {
+                lastName= iLastName.getText();
+            }
 
-            firstName = null;
+            if (iPassword.getText()== null||iPassword.getText().isEmpty()){
+                i3.setImage(new Image(getClass().getResourceAsStream("img/eror.png")));
+                pass = null;
+
+            }else {
+                pass =iPassword.getText();
+            }
+
+            if (iConfirmPassword.getText()== null||iConfirmPassword.getText().isEmpty()){
+                i4.setImage(new Image(getClass().getResourceAsStream("img/eror.png")));
+                cpass = null;
+            }else {
+                cpass = iConfirmPassword.getText();
+            }
+
+
+            if (iAddress.getText()== null||iAddress.getText().isEmpty()){
+                i7.setImage(new Image(getClass().getResourceAsStream("img/eror.png")));
+                address= null;
+            }else {
+                address= iAddress.getText();
+            }
+            if (iBirthday.getValue()== null){
+                i6.setImage(new Image(getClass().getResourceAsStream("img/eror.png")));
+                birthday =null;
+            }else{
+                birthday =iBirthday.getValue();
+            }
+
+
+            if (iEmailOrPhone.getText()== null||iEmailOrPhone.getText().isEmpty()){
+                i8.setImage(new Image(getClass().getResourceAsStream("img/eror.png")));
+                phone =null;
+            }else{
+                phone =iEmailOrPhone.getText();
+            }
+
+            System.out.println(firstName);
+            System.out.println(lastName);
+            System.out.println(birthday);
+
+            System.out.println(address);
+            System.out.println(phone);
+            System.out.println(pass);
+
+            if (firstName != null && lastName != null
+                    && birthday != null
+                    && address != null && phone != null
+                    && cpass != null && cpass.equals(pass)){
+                System.out.println("done");
+
+                Assistant assistant = new Assistant(firstName,lastName,birthday,address, phone,pass,gender);
+                Db db= new Db();
+                db.InsertData(assistant);
+                firstName=null;
+                lastName=null;
+                birthday=null;
+
+                address=null;
+                phone=null;
+                pass=null;
+
+
+                password.clear();
+
+
+                iPassword.clear();
+                iAddress.clear();
+                iLastName.clear();
+                iFirstName.clear();
+
+                iEmailOrPhone.clear();
+                iBirthday.setValue(null);
+                iConfirmPassword.clear();
+                anchor_3.toFront();
+
+            }else
+            {
+
+            }
+
+
         }else {
-            firstName = iFirstName.getText();
-        }
-        if (iLastName.getText()== null||iLastName.getText().isEmpty()){
-            i2.setImage(new Image(getClass().getResourceAsStream("img/eror.png")));
-            lastName= null;
-        }else {
-            lastName= iLastName.getText();
-        }
 
-        if (iPassword.getText()== null||iPassword.getText().isEmpty()){
-            i3.setImage(new Image(getClass().getResourceAsStream("img/eror.png")));
-            pass = null;
-
-        }else {
-            pass =iPassword.getText();
-        }
-
-        if (iConfirmPassword.getText()== null||iConfirmPassword.getText().isEmpty()){
-            i4.setImage(new Image(getClass().getResourceAsStream("img/eror.png")));
-            cpass = null;
-        }else {
-            cpass = iConfirmPassword.getText();
-        }
-
-
-        if (iAddress.getText()== null||iAddress.getText().isEmpty()){
-            i7.setImage(new Image(getClass().getResourceAsStream("img/eror.png")));
-            address= null;
-        }else {
-            address= iAddress.getText();
-        }
-        if (iBirthday.getValue()== null){
-            i6.setImage(new Image(getClass().getResourceAsStream("img/eror.png")));
-            birthday =null;
-        }else{
-            birthday =iBirthday.getValue();
-        }
-
-
-        if (iEmailOrPhone.getText()== null||iEmailOrPhone.getText().isEmpty()){
-            i8.setImage(new Image(getClass().getResourceAsStream("img/eror.png")));
-            phone =null;
-        }else{
-            phone =iEmailOrPhone.getText();
-        }
-
-        System.out.println(firstName);
-        System.out.println(lastName);
-        System.out.println(birthday);
-
-        System.out.println(address);
-        System.out.println(phone);
-        System.out.println(pass);
-
-        if (firstName != null && lastName != null
-                && birthday != null
-                && address != null && phone != null
-               && cpass != null && cpass.equals(pass)){
-            System.out.println("done");
-
-            Assistant assistant = new Assistant(firstName,lastName,birthday,address, phone,pass,gender);
-            Db db= new Db();
-            db.InsertData(assistant);
-            firstName=null;
-            lastName=null;
-            birthday=null;
-
-            address=null;
-            phone=null;
-            pass=null;
-
-
-            password.clear();
-
-
-            iPassword.clear();
-            iAddress.clear();
-            iLastName.clear();
-            iFirstName.clear();
-
-            iEmailOrPhone.clear();
-            iBirthday.setValue(null);
-            iConfirmPassword.clear();
-            anchor_3.toFront();
-
-        }else
-        {
 
         }
-
 
 
 

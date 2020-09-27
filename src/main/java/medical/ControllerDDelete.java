@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import medical.DataBase.Db;
 
 import java.net.URL;
@@ -21,6 +22,9 @@ public class ControllerDDelete implements Initializable {
 
     public ImageView img;
     public Label text;
+    public  AnchorPane root;
+    private double x;
+    private double y;
 
     public Label fDateTwo;
     public Label fDateOne;
@@ -39,6 +43,16 @@ public class ControllerDDelete implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        root.setOnMousePressed(mouseEvent -> {
+            x=mouseEvent.getSceneX();
+            y=mouseEvent.getSceneY();
+        });
+        root.setOnMouseDragged(e->{
+            Stage stage = (Stage) root.getScene().getWindow();
+            stage.setX(e.getScreenX()-x);
+            stage.setY(e.getScreenY()-y);
+        });
         if (patientForAppointment!=null){
             fPatient.setText("Patient : "+patientForAppointment.getFirstName()+" "+patientForAppointment.getLastName());
             fPhone.setText("Phone : "+patientForAppointment.getPhone());
@@ -69,6 +83,16 @@ public class ControllerDDelete implements Initializable {
                 }
             }
         });
+        fnb.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    fnb.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
+
 
     }
 
@@ -84,7 +108,8 @@ public class ControllerDDelete implements Initializable {
     }
 
     public void onExit(ActionEvent actionEvent) {
-        System.exit(0);
+        Stage stage = (Stage) root.getScene().getWindow();
+        stage.close();
 
     }
 
@@ -119,6 +144,7 @@ public class ControllerDDelete implements Initializable {
 
 
             }catch (Exception e){
+
                // lab1.setText("Something is wrong");
             }
 

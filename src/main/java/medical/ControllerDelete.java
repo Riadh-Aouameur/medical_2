@@ -11,6 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import medical.DataBase.Db;
 
 
@@ -26,11 +28,14 @@ public class ControllerDelete  implements Initializable {
 
     public ImageView img;
     public Label text;
+    public AnchorPane root;
+    private double x;
+    private double y;
 
     public Label fStats;
     public TextField fnb;
     public Label fPhone;
-    public Label text1;
+
 
     ObservableList<PatientForWaitingRoom> observableList;
     PatientForWaitingRoom patientForWaitingRoom;
@@ -43,6 +48,15 @@ public class ControllerDelete  implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        root.setOnMousePressed(mouseEvent -> {
+            x=mouseEvent.getSceneX();
+            y=mouseEvent.getSceneY();
+        });
+        root.setOnMouseDragged(e->{
+            Stage stage = (Stage) root.getScene().getWindow();
+            stage.setX(e.getScreenX()-x);
+            stage.setY(e.getScreenY()-y);
+        });
         db = new Db();
         if (patientForWaitingRoom!=null){
             fPatient.setText("Patient : "+patientForWaitingRoom.getFirstName()+" "+patientForWaitingRoom.getLastName());
@@ -94,7 +108,8 @@ public class ControllerDelete  implements Initializable {
     }
 
     public void onExit(ActionEvent actionEvent) {
-        System.exit(0);
+        Stage stage = (Stage) root.getScene().getWindow();
+        stage.close();
 
     }
 

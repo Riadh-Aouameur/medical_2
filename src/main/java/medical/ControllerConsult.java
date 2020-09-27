@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import medical.DataBase.Db;
 
 import java.net.URL;
@@ -17,12 +18,16 @@ import java.util.ResourceBundle;
 public class ControllerConsult  implements Initializable {
     public TextField fnb;
     public Label fPhone;
+    public AnchorPane root;
     public ImageView img;
     public Label fPatient;
     public Label fStats;
     public Label lab1;
+    private double x;
+    private double y;
     ObservableList<PatientForWaitingRoom> observableList;
     PatientForWaitingRoom patientForWaitingRoom;
+    Db db = new Db();
 
     public ControllerConsult(ObservableList<PatientForWaitingRoom> observableList, PatientForWaitingRoom patientForWaitingRoom) {
         this.observableList = observableList;
@@ -31,7 +36,20 @@ public class ControllerConsult  implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        root.setOnMousePressed(mouseEvent -> {
+            x=mouseEvent.getSceneX();
+            y=mouseEvent.getSceneY();
+        });
+        root.setOnMouseDragged(e->{
+            Stage stage = (Stage) root.getScene().getWindow();
+            stage.setX(e.getScreenX()-x);
+            stage.setY(e.getScreenY()-y);
+        });
         if (patientForWaitingRoom!=null){
+
+            if(patientForWaitingRoom.getStatus().equals("Pass")){
+
+            }
             fPatient.setText("Patient : "+patientForWaitingRoom.getFirstName()+" "+patientForWaitingRoom.getLastName());
             fPhone.setText("Phone : "+patientForWaitingRoom.getPhone());
             fStats.setText("Status : "+patientForWaitingRoom.getStatus());
@@ -50,23 +68,40 @@ public class ControllerConsult  implements Initializable {
     public void onConsultPatient(ActionEvent actionEvent) {
 
         if (patientForWaitingRoom!=null){
-            for (int i = 0;i<observableList.size();i++){
-                if(observableList.get(i).getStatus().equals("Consult")){
-                    observableList.get(i).setStatus("Pass");
-                }
+            if(patientForWaitingRoom.getStatus().equals("Consult")){
+                observableList.remove(patientForWaitingRoom);
+                patientForWaitingRoom.setStatus("Pass");
+                db.updateStatus(patientForWaitingRoom);
+                observableList.add(patientForWaitingRoom.getNumber()-1,patientForWaitingRoom);
             }
-            observableList.remove(patientForWaitingRoom);
-            patientForWaitingRoom.setStatus("Consult");
-            observableList.add(patientForWaitingRoom.getNumber()-1,patientForWaitingRoom);
-            fStats.setText("Status : "+patientForWaitingRoom.getStatus());
-            Db db = new Db();
-            db.superUpdate(observableList);
+            else if(patientForWaitingRoom.getStatus().equals("Waiting")){
+                for (int i = 0;i<observableList.size();i++){
+                    if(observableList.get(i).getStatus().equals("Consult")){
+                        PatientForWaitingRoom p =  observableList.get(i);
+                        observableList.remove(p);
+                        p.setStatus("Pass");
+                        db.updateStatus(p);
+
+                        observableList.add(i,p);
+                    }
+                }
+                observableList.remove(patientForWaitingRoom);
+                patientForWaitingRoom.setStatus("Consult");
+                db.updateStatus(patientForWaitingRoom);
+                observableList.add(patientForWaitingRoom.getNumber()-1,patientForWaitingRoom);
+                fStats.setText("Status : "+patientForWaitingRoom.getStatus());
+
+                db.superUpdate(observableList);
+            }
+
 
         }
 
     }
-
     public void onExit(ActionEvent actionEvent) {
+        Stage stage = (Stage) root.getScene().getWindow();
+        stage.close();
+
     }
 
     public void onSelect(ActionEvent actionEvent) {
@@ -95,5 +130,13 @@ public class ControllerConsult  implements Initializable {
             }
 
         }
+    }
+
+    public void onWaitingPatient(ActionEvent actionEvent) {
+            observableList.remove(patientForWaitingRoom);
+            patientForWaitingRoom.setStatus("Waiting");
+            db.updateStatus(patientForWaitingRoom);
+            observableList.add(patientForWaitingRoom.getNumber()-1,patientForWaitingRoom);
+
     }
 }

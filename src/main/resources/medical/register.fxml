@@ -20,6 +20,53 @@
 
 <AnchorPane fx:id="anchorPaneRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="1175.0" style="-fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1530CC, #5EE6E4);" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medical.ControllerRegister">
    <children>
+      <AnchorPane fx:id="anchor_3" layoutX="295.0" layoutY="20.0" prefHeight="387.0" prefWidth="865.0" style="-fx-background-color: #fff; -fx-background-radius: 60 600 60;">
+         <children>
+            <Label alignment="CENTER" layoutX="278.0" layoutY="166.0" prefHeight="55.0" prefWidth="309.0" text="Congratulations" textFill="#64cb86">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="38.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="55.0" fitWidth="70.0" layoutX="196.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+               <image>
+                  <Image url="@../../../../../../AppDoctor/src/main/resources/medical/img/congratulation.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="55.0" fitWidth="70.0" layoutX="607.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../AppDoctor/src/main/resources/medical/img/congratulation.png" />
+               </image>
+            </ImageView>
+            <HBox alignment="CENTER" layoutX="383.0" layoutY="14.0" prefHeight="33.0" prefWidth="200.0" style="-fx-background-color: #1530CC; -fx-background-radius: 30;">
+               <children>
+                  <JFXButton onAction="#onSetPaneLogin" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: #fff; -fx-background-radius: 30;" text="Login">
+                     <HBox.margin>
+                        <Insets left="5.0" right="2.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="15.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="#1530cc" />
+                              <Stop color="#5ee6e4" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </JFXButton>
+                  <JFXButton layoutX="58.0" layoutY="14.0" prefHeight="26.0" prefWidth="103.0" style="-fx-background-color: #1530cc; -fx-background-radius: 30;" text="Register" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="2.0" right="5.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
       <AnchorPane fx:id="anchor_1" focusTraversable="true" layoutX="295.0" layoutY="20.0" prefHeight="387.0" prefWidth="865.0" style="-fx-background-color: #fff; -fx-background-radius: 60 600 6;">
          <children>
             <Button layoutX="304.0" layoutY="326.0" mnemonicParsing="false" onAction="#onLogin" prefHeight="17.0" prefWidth="284.0" style="-fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1530CC, #5EE6E4); -fx-background-radius: 60;" text="Login " textFill="WHITE">
@@ -220,9 +267,9 @@
             <ImageView fx:id="i7" fitHeight="25.0" fitWidth="25.0" layoutX="623.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="i8" fitHeight="25.0" fitWidth="25.0" layoutX="684.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="i6" fitHeight="25.0" fitWidth="25.0" layoutX="575.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="i9" fitHeight="25.0" fitWidth="25.0" layoutX="719.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="i10" fitHeight="25.0" fitWidth="25.0" layoutX="770.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="i10" fitHeight="25.0" fitWidth="25.0" layoutX="741.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="i5" fitHeight="25.0" fitWidth="25.0" layoutX="420.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true" />
+            <TextField fx:id="iIdOfApproval" layoutX="539.0" layoutY="189.0" prefHeight="25.0" prefWidth="194.0" />
          </children>
       </AnchorPane>
       <ImageView fitHeight="158.0" fitWidth="164.0" layoutX="56.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
@@ -235,57 +282,5 @@
             <Font name="Arial Rounded MT Bold" size="35.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="22.0" layoutY="310.0" prefHeight="51.0" prefWidth="258.0" text="Our ultimate goal, after all, is not a good death &#10;but a good life to the very end" textFill="WHITE" wrapText="true">
-         <font>
-            <Font name="Arial Rounded MT Bold" size="10.0" />
-         </font>
-      </Label>
-      <AnchorPane fx:id="anchor_3" layoutX="295.0" layoutY="20.0" prefHeight="387.0" prefWidth="865.0" style="-fx-background-color: #fff; -fx-background-radius: 60 600 60;">
-         <children>
-            <Label alignment="CENTER" layoutX="278.0" layoutY="166.0" prefHeight="55.0" prefWidth="309.0" text="Congratulations" textFill="#64cb86">
-               <font>
-                  <Font name="Arial Rounded MT Bold" size="38.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="55.0" fitWidth="70.0" layoutX="196.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
-               <image>
-                  <Image url="@../../../../../../AppDoctor/src/main/resources/medical/img/congratulation.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="55.0" fitWidth="70.0" layoutX="607.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../AppDoctor/src/main/resources/medical/img/congratulation.png" />
-               </image>
-            </ImageView>
-            <HBox alignment="CENTER" layoutX="383.0" layoutY="14.0" prefHeight="33.0" prefWidth="200.0" style="-fx-background-color: #1530CC; -fx-background-radius: 30;">
-               <children>
-                  <JFXButton onAction="#onSetPaneLogin" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: #fff; -fx-background-radius: 30;" text="Login">
-                     <HBox.margin>
-                        <Insets left="5.0" right="2.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font name="Arial Rounded MT Bold" size="15.0" />
-                     </font>
-                     <textFill>
-                        <LinearGradient endX="1.0" endY="1.0">
-                           <stops>
-                              <Stop color="#1530cc" />
-                              <Stop color="#5ee6e4" offset="1.0" />
-                           </stops>
-                        </LinearGradient>
-                     </textFill>
-                  </JFXButton>
-                  <JFXButton layoutX="58.0" layoutY="14.0" prefHeight="26.0" prefWidth="103.0" style="-fx-background-color: #1530cc; -fx-background-radius: 30;" text="Register" textFill="WHITE">
-                     <font>
-                        <Font name="Arial Rounded MT Bold" size="15.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="2.0" right="5.0" />
-                     </HBox.margin>
-                  </JFXButton>
-               </children>
-            </HBox>
-         </children>
-      </AnchorPane>
    </children>
 </AnchorPane>

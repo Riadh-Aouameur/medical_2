@@ -24,6 +24,7 @@ Db db =new Db();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
          System.out.println(LocalDate.now());
+
         observableList = FXCollections.observableArrayList(db.getAppointmentToday());
         list.setItems(observableList);
         list.setCellFactory(param -> new MyListCell_3());

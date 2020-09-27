@@ -224,7 +224,7 @@
                         <Image url="@img/nurse.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="BASELINE_LEFT" layoutX="50.0" layoutY="18.0" prefHeight="23.0" prefWidth="174.0" text="As.Karima " textFill="WHITE">
+                  <Label alignment="BASELINE_LEFT" layoutX="50.0" layoutY="18.0" prefHeight="23.0" prefWidth="174.0" text="Asst.Karima " textFill="WHITE">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
@@ -258,7 +258,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Label alignment="CENTER" layoutX="568.0" layoutY="11.0" prefHeight="37.0" prefWidth="307.0" text="Medical Application" textFill="#1632cc">
+            <Label alignment="CENTER" layoutX="614.0" layoutY="11.0" prefHeight="37.0" prefWidth="242.0" text="CardioCare" textFill="#1632cc">
                <font>
                   <Font name="Arial Rounded MT Bold" size="31.0" />
                </font>
@@ -267,14 +267,14 @@
                <graphic>
                   <ImageView fitHeight="26.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/bell.png" />
+                        <Image url="@img/appt.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <ImageView fitHeight="12.0" fitWidth="14.0" layoutX="1289.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="169.0" AnchorPane.topAnchor="11.0">
+            <ImageView fitHeight="34.0" fitWidth="36.0" layoutX="597.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@img/dot.png" />
+                  <Image url="@img/cardio.png" />
                </image>
             </ImageView>
          </children>

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="302.0" prefWidth="673.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medical.ControllerMModify">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="302.0" prefWidth="673.0" style="-fx-background-color: #fff; -fx-border-color: #ffd571;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medical.ControllerMModify">
    <children>
       <TextField fx:id="fFirstName" layoutX="123.0" layoutY="110.0" prefHeight="31.0" prefWidth="195.0">
          <font>
@@ -76,7 +76,7 @@
                   <Font name="Arial Rounded MT Bold" size="18.0" />
                </font>
             </Label>
-            <Button layoutX="594.0" layoutY="17.0" mnemonicParsing="false" onAction="#onExit" style="-fx-background-color: #ffd571;">
+            <Button layoutX="607.0" layoutY="17.0" mnemonicParsing="false" onAction="#onExit" style="-fx-background-color: #ffd571;">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>

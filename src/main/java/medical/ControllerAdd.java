@@ -6,10 +6,13 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import medical.DataBase.Db;
 
 import java.net.URL;
@@ -21,9 +24,11 @@ public class ControllerAdd implements Initializable {
     public TextField fFirstName;
     public TextField fLastName;
     public TextField fPhone;
+    public AnchorPane root;
     public RadioButton iFemale;
     public RadioButton iMale;
     public TextField fNumber;
+
 
     String firstName;
     String lastName;
@@ -32,6 +37,8 @@ public class ControllerAdd implements Initializable {
     int nb;
     String gender = "Female";
     Db db = new Db();
+    private double x;
+   private double y;
 
 
 
@@ -43,6 +50,26 @@ public class ControllerAdd implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        fLastName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\sa-zA-Z*")) {
+                fLastName.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
+            }
+        });
+        fFirstName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\sa-zA-Z*")) {
+                fFirstName.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
+            }
+        });
+        root.setOnMousePressed(mouseEvent -> {
+            x=mouseEvent.getSceneX();
+            y=mouseEvent.getSceneY();
+        });
+        root.setOnMouseDragged(e->{
+            Stage stage = (Stage) root.getScene().getWindow();
+            stage.setX(e.getScreenX()-x);
+            stage.setY(e.getScreenY()-y);
+        });
         nb = observableList.size();
         System.out.println("nb -= "+nb);
         fNumber.setText(String.valueOf(observableList.size()+1));
@@ -128,7 +155,8 @@ public class ControllerAdd implements Initializable {
     }
 
     public void onExit(ActionEvent actionEvent) {
-        System.exit(0);
+        Stage stage = (Stage) root.getScene().getWindow();
+        stage.close();
 
     }
 }

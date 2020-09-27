@@ -44,6 +44,41 @@ public class ControllerAAdd implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        fLastName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\sa-zA-Z*")) {
+                fLastName.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
+            }
+        });
+        fFirstName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\sa-zA-Z*")) {
+                fFirstName.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
+            }
+        });
+        fPhone.lengthProperty().addListener(new ChangeListener<Number>() {
+
+            @Override
+            public void changed(ObservableValue<? extends Number> observable,
+                                Number oldValue, Number newValue) {
+                if (newValue.intValue() > oldValue.intValue()) {
+                    // Check if the new character is greater than LIMIT
+                    if (fPhone.getText().length() >= 10) {
+
+                        // if it's 11th character then just setText to previous
+                        // one
+                        fPhone.setText(fPhone.getText().substring(0, 10));
+                    }
+                }
+            }
+        });
+        fPhone.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    fPhone.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
 
         root.setOnMousePressed(mouseEvent -> {
             x=mouseEvent.getSceneX();
@@ -75,6 +110,9 @@ public class ControllerAAdd implements Initializable {
     }
 
     public void onExit(ActionEvent actionEvent) {
+        Stage stage = (Stage) root.getScene().getWindow();
+        stage.close();
+
     }
 
     public void onADDList(ActionEvent actionEvent) {
@@ -88,8 +126,10 @@ public class ControllerAAdd implements Initializable {
             phone= fPhone.getText();
         }
         if (!(fAppointment.getValue()== null)){
-
+            if (fAppointment.getValue().isAfter(LocalDate.now())){
                 date= fAppointment.getValue();
+            }
+
 
         }
         if (firstName != null && lastName != null&& date != null){
