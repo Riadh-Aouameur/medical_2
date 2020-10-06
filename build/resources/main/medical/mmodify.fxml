@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="302.0" prefWidth="673.0" style="-fx-background-color: #fff; -fx-border-color: #ffd571;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medical.ControllerMModify">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="316.0" prefWidth="673.0" style="-fx-background-color: #fff; -fx-border-color: #ffd571;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medical.ControllerMModify">
    <children>
       <TextField fx:id="fFirstName" layoutX="123.0" layoutY="110.0" prefHeight="31.0" prefWidth="195.0">
          <font>
@@ -43,17 +43,17 @@
             <Font name="Arial Rounded MT Bold" size="15.0" />
          </font>
       </Label>
-      <RadioButton fx:id="iMale" layoutX="123.0" layoutY="219.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="143.0" text="Male" textFill="#1632cc">
+      <RadioButton fx:id="iMale" layoutX="123.0" layoutY="219.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="98.0" text="Male" textFill="#1632cc">
          <font>
             <Font name="Arial Rounded MT Bold" size="15.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="iFemale" layoutX="123.0" layoutY="253.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="143.0" text="Female" textFill="#1632cc">
+      <RadioButton fx:id="iFemale" layoutX="234.0" layoutY="219.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="111.0" text="Female" textFill="#1632cc">
          <font>
             <Font name="Arial Rounded MT Bold" size="15.0" />
          </font>
       </RadioButton>
-      <JFXButton layoutX="513.0" layoutY="229.0" onAction="#onADDList" prefHeight="47.0" prefWidth="129.0" style="-fx-background-color: #ffd571;" text="Modify" textFill="WHITE">
+      <JFXButton layoutX="513.0" layoutY="245.0" onAction="#onADDList" prefHeight="47.0" prefWidth="129.0" style="-fx-background-color: #ffd571;" text="Modify" textFill="WHITE">
          <font>
             <Font name="Arial Rounded MT Bold" size="17.0" />
          </font>
@@ -85,6 +85,15 @@
                   </ImageView>
                </graphic>
             </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="paneMassage" layoutX="31.0" layoutY="253.0" prefHeight="31.0" prefWidth="444.0" style="-fx-background-color: red; -fx-background-radius: 10;" visible="false">
+         <children>
+            <Label fx:id="message" layoutX="14.0" layoutY="8.0" prefHeight="17.0" prefWidth="415.0" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

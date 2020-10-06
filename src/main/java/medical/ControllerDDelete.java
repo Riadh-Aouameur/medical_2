@@ -18,11 +18,13 @@ import java.util.ResourceBundle;
 
 public class ControllerDDelete implements Initializable {
     public Label fPatient;
-    public Label lab1;
+
 
     public ImageView img;
-    public Label text;
+
     public  AnchorPane root;
+    public AnchorPane paneMassage;
+    public Label message;
     private double x;
     private double y;
 
@@ -73,11 +75,10 @@ public class ControllerDDelete implements Initializable {
             public void changed(ObservableValue<? extends Number> observable,
                                 Number oldValue, Number newValue) {
                 if (newValue.intValue() > oldValue.intValue()) {
-                    // Check if the new character is greater than LIMIT
+
                     if (fnb.getText().length() >= 2) {
 
-                        // if it's 11th character then just setText to previous
-                        // one
+
                         fnb.setText(fnb.getText().substring(0, 2));
                     }
                 }
@@ -101,8 +102,16 @@ public class ControllerDDelete implements Initializable {
         if (patientForAppointment !=null){
             observableList.remove(patientForAppointment);
             db.deleteAppointment(patientForAppointment.getId());
-            text.setVisible(true);
-
+            message.setText("Successful");
+            fPatient.setText("Patient : ...");
+            fPhone.setText("Phone :... ");
+            fStats.setText("Status :... ");
+            fDateOne.setText("Day :... ");
+            fDateTwo.setText("Day Appointment :... ");
+            patientForAppointment=null;
+        }else{
+            message.setText("No Patient Selected");
+            paneMassage.setVisible(true);
         }
 
     }
@@ -116,7 +125,8 @@ public class ControllerDDelete implements Initializable {
     public void onSelect(ActionEvent actionEvent) {
         int id;
         if(fnb.getText().isEmpty()){
-            lab1.setText("Enter your patient number");
+            message.setText("Enter Your Patient ID");
+            paneMassage.setVisible(true);
         }
         else{
             try {
@@ -141,11 +151,18 @@ public class ControllerDDelete implements Initializable {
                  }
 
 
+                fPatient.setText("Patient : ...");
+                fPhone.setText("Phone :... ");
+                fStats.setText("Status :... ");
+                fDateOne.setText("Day :... ");
+                fDateTwo.setText("Day Appointment :... ");
+                message.setText("Out Of Rang");
+                paneMassage.setVisible(true);
 
 
             }catch (Exception e){
 
-               // lab1.setText("Something is wrong");
+
             }
 
         }

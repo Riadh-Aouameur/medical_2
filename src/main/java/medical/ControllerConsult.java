@@ -22,7 +22,9 @@ public class ControllerConsult  implements Initializable {
     public ImageView img;
     public Label fPatient;
     public Label fStats;
-    public Label lab1;
+
+    public AnchorPane paneMassage;
+    public Label message;
     private double x;
     private double y;
     ObservableList<PatientForWaitingRoom> observableList;
@@ -87,6 +89,7 @@ public class ControllerConsult  implements Initializable {
                 }
                 observableList.remove(patientForWaitingRoom);
                 patientForWaitingRoom.setStatus("Consult");
+                message.setText("Patient is Consult");
                 db.updateStatus(patientForWaitingRoom);
                 observableList.add(patientForWaitingRoom.getNumber()-1,patientForWaitingRoom);
                 fStats.setText("Status : "+patientForWaitingRoom.getStatus());
@@ -95,6 +98,9 @@ public class ControllerConsult  implements Initializable {
             }
 
 
+        }else{
+            message.setText("No Patient Selected");
+            paneMassage.setVisible(true);
         }
 
     }
@@ -107,7 +113,8 @@ public class ControllerConsult  implements Initializable {
     public void onSelect(ActionEvent actionEvent) {
         int a;
         if(fnb.getText().isEmpty()){
-            lab1.setText("Enter your patient number");
+            message.setText("Enter Your Patient ID");
+            paneMassage.setVisible(true);
         }
         else{
             try {
@@ -126,17 +133,25 @@ public class ControllerConsult  implements Initializable {
 
 
             }catch (Exception e){
-                lab1.setText("Something is wrong");
+                message.setText("Out Of Rang");
+                paneMassage.setVisible(true);
             }
 
         }
     }
 
     public void onWaitingPatient(ActionEvent actionEvent) {
+        if (patientForWaitingRoom!=null){
             observableList.remove(patientForWaitingRoom);
             patientForWaitingRoom.setStatus("Waiting");
+            message.setText("Patient is Waiting");
             db.updateStatus(patientForWaitingRoom);
             observableList.add(patientForWaitingRoom.getNumber()-1,patientForWaitingRoom);
+        }else{
+            message.setText("No Patient Selected");
+            paneMassage.setVisible(true);
+        }
+
 
     }
 }

@@ -51,7 +51,7 @@
                         <Font name="Arial Rounded MT Bold" size="22.0" />
                      </font>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#onCalculater" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: #1530CC;" text="Calendar" textFill="WHITE">
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#onOpenCalender" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: #1530CC;" text="Calendar" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="46.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -81,7 +81,7 @@
                         <Font name="Arial Rounded MT Bold" size="22.0" />
                      </font>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="288.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: #1530CC;" text="Money" textFill="WHITE">
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="288.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: #1530CC;" text="Cash" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="46.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -102,7 +102,7 @@
                <children>
                   <VBox prefHeight="162.0" prefWidth="131.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="81.0" prefWidth="131.0" style="-fx-background-color: #1530CC;">
+                        <Button mnemonicParsing="false" onAction="#onOpenSettings" prefHeight="81.0" prefWidth="131.0" style="-fx-background-color: #1530CC;">
                            <graphic>
                               <ImageView fitHeight="67.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -219,12 +219,12 @@
          <children>
             <AnchorPane prefHeight="59.0" prefWidth="241.0" style="-fx-background-color: #1530CC;">
                <children>
-                  <ImageView fitHeight="29.0" fitWidth="31.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="img" fitHeight="29.0" fitWidth="31.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/nurse.png" />
+                        <Image url="@img/n2.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="BASELINE_LEFT" layoutX="50.0" layoutY="18.0" prefHeight="23.0" prefWidth="174.0" text="Asst.Karima " textFill="WHITE">
+                  <Label fx:id="asst" alignment="BASELINE_LEFT" layoutX="50.0" layoutY="18.0" prefHeight="23.0" prefWidth="174.0" text="Asst.Karima " textFill="WHITE">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>

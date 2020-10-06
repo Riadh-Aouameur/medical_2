@@ -66,7 +66,7 @@
             <Font name="Arial Rounded MT Bold" size="15.0" />
          </font>
       </Label>
-      <RadioButton fx:id="iMale" layoutX="164.0" layoutY="229.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="143.0" text="Male">
+      <RadioButton fx:id="iMale" layoutX="138.0" layoutY="216.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="84.0" text="Male">
          <toggleGroup>
             <ToggleGroup fx:id="group" />
          </toggleGroup>
@@ -74,7 +74,7 @@
             <Font name="Arial Rounded MT Bold" size="15.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="iFemale" layoutX="164.0" layoutY="269.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="143.0" text="Female">
+      <RadioButton fx:id="iFemale" layoutX="236.0" layoutY="216.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="98.0" text="Female">
          <toggleGroup>
             <ToggleGroup fx:id="group" />
          </toggleGroup>
@@ -92,10 +92,19 @@
             <Font size="15.0" />
          </font>
       </TextField>
-      <JFXButton layoutX="501.0" layoutY="245.0" onAction="#onADDList" prefHeight="47.0" prefWidth="129.0" style="-fx-background-color: #ffd571;" text="Modify" textFill="WHITE">
+      <JFXButton layoutX="469.0" layoutY="245.0" onAction="#onADDList" prefHeight="47.0" prefWidth="168.0" style="-fx-background-color: #ffd571;" text="Modify and Close" textFill="WHITE">
          <font>
             <Font name="Arial Rounded MT Bold" size="17.0" />
          </font>
       </JFXButton>
+      <AnchorPane fx:id="paneMassage" layoutX="28.0" layoutY="253.0" prefHeight="31.0" prefWidth="415.0" style="-fx-background-color: red; -fx-background-radius: 10;">
+         <children>
+            <Label fx:id="message" layoutX="1.0" layoutY="7.0" prefHeight="17.0" prefWidth="415.0" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

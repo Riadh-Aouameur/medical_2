@@ -20,14 +20,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ControllerDelete  implements Initializable {
-   @FXML
+    public AnchorPane paneMassage;
+    public Label message;
+    @FXML
    Label fPatient;
 
-    public Label lab1;
+
 
 
     public ImageView img;
-    public Label text;
+
     public AnchorPane root;
     private double x;
     private double y;
@@ -94,15 +96,18 @@ public class ControllerDelete  implements Initializable {
         if (patientForWaitingRoom!=null){
             observableList.remove(patientForWaitingRoom);
             db.clearWaiting(patientForWaitingRoom.getNumber());
-            text.setVisible(true);
+
             for (int i = patientForWaitingRoom.getNumber()-1;i<observableList.size();i++){
                 observableList.get(i).setNumber(observableList.get(i).getNumber()-1);
                     db.update(observableList.get(i));
             }
-
+            message.setText("Successful");
             db.clearWaiting(observableList.size()+1);
 
             patientForWaitingRoom = null;
+        }else{
+            message.setText("No Patient Selected");
+            paneMassage.setVisible(true);
         }
 
     }
@@ -116,7 +121,8 @@ public class ControllerDelete  implements Initializable {
     public void onSelect(ActionEvent actionEvent) {
         int a;
         if(fnb.getText().isEmpty()){
-            lab1.setText("Enter your patient number");
+            message.setText("Enter Your Patient ID");
+            paneMassage.setVisible(true);
         }
         else{
             try {
@@ -135,7 +141,9 @@ public class ControllerDelete  implements Initializable {
 
 
             }catch (Exception e){
-                lab1.setText("Something is wrong");
+                message.setText("Out Of Rang");
+                paneMassage.setVisible(true);
+
             }
 
         }

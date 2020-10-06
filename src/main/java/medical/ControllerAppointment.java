@@ -34,6 +34,7 @@ public class ControllerAppointment implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         observableList.setAll(db.getAppointmentAll());
+        rAll.fire();
         waitingList.setItems(observableList);
         waitingList.setCellFactory(pp->new MyListCell_2());
 
@@ -69,6 +70,9 @@ public class ControllerAppointment implements Initializable {
 
     Stage primaryStage ;
     public void onAdd(ActionEvent actionEvent) throws IOException {
+        try {
+
+
 if (primaryStage==null){
     FXMLLoader loader = new FXMLLoader(getClass().getResource("aAdd.fxml"));
     loader.setControllerFactory(e->{
@@ -102,7 +106,13 @@ if (primaryStage==null){
     primaryStage.setScene(new Scene(loader.load()));
     primaryStage.show();
 }
-
+        }catch (Exception e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText(e.getMessage());
+            alert.setTitle("ERROR");
+            alert.setHeaderText("");
+            alert.showAndWait();
+        }
     }
 
 
@@ -110,6 +120,9 @@ if (primaryStage==null){
 
     Stage primaryStage4;
      public void onDeletePatient(ActionEvent actionEvent) throws IOException {
+         try {
+
+
          if (primaryStage4 == null){
              if(!observableList.isEmpty()){
                  PatientForAppointment patient= waitingList.getSelectionModel().getSelectedItem();
@@ -130,13 +143,6 @@ if (primaryStage==null){
 
                  primaryStage4.setScene(new Scene(loader.load()));
                  primaryStage4.show();
-             }else {
-                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                 alert.setContentText("");
-                 alert.setTitle("");
-                 alert.setHeaderText("");
-                 alert.showAndWait();
-                 //Todo Message error
              }
          }else {
              if(!observableList.isEmpty()){
@@ -158,16 +164,15 @@ if (primaryStage==null){
 
                  primaryStage4.setScene(new Scene(loader.load()));
                  primaryStage4.show();
-             }else {
-                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                 alert.setContentText("");
-                 alert.setTitle("");
-                 alert.setHeaderText("");
-                 alert.showAndWait();
-                 //Todo Message error
              }
          }
-
+         }catch (Exception e){
+             Alert alert = new Alert(Alert.AlertType.ERROR);
+             alert.setContentText(e.getMessage());
+             alert.setTitle("ERROR");
+             alert.setHeaderText("");
+             alert.showAndWait();
+         }
 
 
 
@@ -176,6 +181,9 @@ if (primaryStage==null){
 
     Stage primaryStage5;
     public void onOpenModify(ActionEvent actionEvent) throws IOException {
+        try {
+
+
         if (primaryStage5==null){
             PatientForAppointment patient= waitingList.getSelectionModel().getSelectedItem();
             int index= waitingList.getSelectionModel().getSelectedIndex();
@@ -201,11 +209,11 @@ if (primaryStage==null){
                 primaryStage5.show();
             }else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("");
-                alert.setTitle("");
+                alert.setContentText("Select Patient");
+                alert.setTitle("INFORMATION");
                 alert.setHeaderText("");
                 alert.showAndWait();
-                //TODO Message Error
+
             }
 
         }
@@ -236,15 +244,22 @@ if (primaryStage==null){
                 primaryStage5.show();
             } else {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setContentText("");
-                    alert.setTitle("");
+                    alert.setContentText("Select Patient");
+                    alert.setTitle("INFORMATION");
                     alert.setHeaderText("");
                     alert.showAndWait();
-                    //TODO Message Error
+
                 }
             }
-
+        }catch (Exception e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText(e.getMessage());
+            alert.setTitle("ERROR");
+            alert.setHeaderText("");
+            alert.showAndWait();
         }
+        }
+
 
     }
 

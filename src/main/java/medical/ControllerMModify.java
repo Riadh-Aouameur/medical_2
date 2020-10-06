@@ -22,6 +22,8 @@ public class ControllerMModify implements Initializable {
     public RadioButton iFemale;
     public RadioButton iMale;
     public AnchorPane root;
+    public AnchorPane paneMassage;
+    public Label message;
     private double x;
     private double y;
     int index;
@@ -132,20 +134,43 @@ public class ControllerMModify implements Initializable {
 
     public void onADDList(ActionEvent actionEvent) {
 
-            observableList.remove(patientForAppointment);
-            patientForAppointment.setFirstName(fFirstName.getText());
-            patientForAppointment.setLastName(fLastName.getText());
 
-        if (fAppointment.getValue().isAfter(LocalDate.now())){
-            patientForAppointment.setDateOne(fAppointment.getValue());
+        if (fAppointment.getValue() != null&& !fFirstName.getText().isEmpty()&& !fLastName.getText().isEmpty()){
+            if (fAppointment.getValue().isAfter(LocalDate.now())){
+                Boolean a=db.updateTestAppointment(fAppointment.getValue());
+                if(!a){
+                    message.setText("You Reach The Patients Daily Limit");
+                    paneMassage.setVisible(true);
+                    return;
+                }else {
+
+                    patientForAppointment.setDateOne(fAppointment.getValue());
+                    patientForAppointment.setFirstName(fFirstName.getText());
+                    patientForAppointment.setLastName(fLastName.getText());
+                    patientForAppointment.setPhone( fPhone.getText());
+                    patientForAppointment.setGender(gender);
+
+                    db.updateAppointment(patientForAppointment);
+                    observableList.remove(patientForAppointment);
+                    observableList.add(index,patientForAppointment);
+                    message.setText("Successful");
+                }
+
+            }
+            else {
+                message.setText("This Date Not Available");
+                paneMassage.setVisible(true);
+                return;
+
+            }
         }else {
+            message.setText("Must Fill Empty Fields");
+            paneMassage.setVisible(true);
 
-            //Todo Message Error
         }
-            patientForAppointment.setPhone( fPhone.getText());
-            patientForAppointment.setGender(gender);
-            db.updateAppointment(patientForAppointment);
-            observableList.add(index,patientForAppointment);
+
+
+
 
 
 

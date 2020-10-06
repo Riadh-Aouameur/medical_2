@@ -39,11 +39,6 @@
             <Font name="Arial Rounded MT Bold" size="17.0" />
          </font>
       </JFXButton>
-      <Label fx:id="text" layoutX="56.0" layoutY="259.0" prefHeight="33.0" prefWidth="216.0" text="Deleted" textFill="#37d129" visible="false">
-         <font>
-            <Font name="Arial Rounded MT Bold" size="28.0" />
-         </font>
-      </Label>
       <ImageView fx:id="img" fitHeight="77.0" fitWidth="72.0" layoutX="54.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/alert.png" />
@@ -70,7 +65,6 @@
             <Font name="Arial Rounded MT Bold" size="17.0" />
          </font>
       </JFXButton>
-      <Label fx:id="lab1" layoutX="140.0" layoutY="262.0" prefHeight="17.0" prefWidth="207.0" text="Label" />
       <Label fx:id="fDateOne" layoutX="154.0" layoutY="173.0" prefHeight="27.0" prefWidth="182.0" text="Day">
          <font>
             <Font name="Arial Rounded MT Bold" size="13.0" />
@@ -81,5 +75,14 @@
             <Font name="Arial Rounded MT Bold" size="13.0" />
          </font>
       </Label>
+      <AnchorPane fx:id="paneMassage" layoutX="33.0" layoutY="260.0" prefHeight="31.0" prefWidth="444.0" style="-fx-background-color: red; -fx-background-radius: 10;" visible="false">
+         <children>
+            <Label fx:id="message" layoutX="14.0" layoutY="8.0" prefHeight="17.0" prefWidth="415.0" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

@@ -7,10 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Toggle;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import medical.DataBase.Db;
@@ -28,6 +25,8 @@ public class ControllerAdd implements Initializable {
     public RadioButton iFemale;
     public RadioButton iMale;
     public TextField fNumber;
+    public AnchorPane paneMassage;
+    public Label message;
 
 
     String firstName;
@@ -133,22 +132,27 @@ public class ControllerAdd implements Initializable {
 
         if (firstName != null && lastName != null){
             PatientForWaitingRoom p =new PatientForWaitingRoom(firstName,lastName,gender,phone,nb+1,status);
-            observableList.add(p);
-            db.update(p);
-            fFirstName.setText("");
-            fLastName.setText("");
-            fPhone.setText("");
-            fNumber.setText(String.valueOf(observableList.size()+1));
 
-            firstName= null;
-            lastName= null;
-            phone ="";
+            if(db.update(p)){
+                observableList.add(p);
+                fFirstName.setText("");
+                fLastName.setText("");
+                fPhone.setText("");
+                fNumber.setText(String.valueOf(observableList.size()+1));
+                message.setText("Successful");
 
-
+                firstName= null;
+                lastName= null;
+                phone ="";
+            }else {
+                message.setText("You Reach The Patients Daily Limit");
+                paneMassage.setVisible(true);
+            }
 
         }
         else {
-            System.out.println("error");
+            message.setText("Must Fill Empty Fields");
+            paneMassage.setVisible(true);
 
         }
 

@@ -16,6 +16,8 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class ControllerAAdd implements Initializable {
+    public AnchorPane paneMassage;
+    public Label message;
     private double x;
     private double y;
     public AnchorPane root;
@@ -126,16 +128,20 @@ public class ControllerAAdd implements Initializable {
             phone= fPhone.getText();
         }
         if (!(fAppointment.getValue()== null)){
-            if (fAppointment.getValue().isAfter(LocalDate.now())){
-                date= fAppointment.getValue();
-            }
 
+                date= fAppointment.getValue();
 
         }
         if (firstName != null && lastName != null&& date != null){
+            if (!date.isAfter(LocalDate.now())){
+                message.setText("This Date Not Available");
+                paneMassage.setVisible(true);
+                return;
+            }
            PatientForAppointment p =new PatientForAppointment(firstName,lastName,gender,phone,date,LocalDate.now(),status);
-        if(  db.InsertAppointment(p)){
+        if(db.InsertAppointment(p)){
             observableList.add(p);
+            message.setText("Successful");
             firstName = null;
             lastName = null;
             phone ="";
@@ -144,12 +150,18 @@ public class ControllerAAdd implements Initializable {
              fLastName.clear();
              fPhone.clear();
              fAppointment.setValue(null);
+        }else {
+            message.setText("You Reach The Patients Daily Limit");
+            paneMassage.setVisible(true);
+            return;
         }
 
 
         }
         else {
-            System.out.println("error");
+            message.setText("Must Fill Empty Fields");
+            paneMassage.setVisible(true);
+            return;
 
         }
 

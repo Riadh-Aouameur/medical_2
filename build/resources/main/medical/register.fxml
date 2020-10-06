@@ -18,7 +18,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPaneRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="1175.0" style="-fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1530CC, #5EE6E4);" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medical.ControllerRegister">
+<AnchorPane fx:id="anchorPaneRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="1192.0" style="-fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1530CC, #5EE6E4);" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medical.ControllerRegister">
    <children>
       <AnchorPane fx:id="anchor_3" layoutX="295.0" layoutY="20.0" prefHeight="387.0" prefWidth="865.0" style="-fx-background-color: #fff; -fx-background-radius: 60 600 60;">
          <children>
@@ -146,7 +146,7 @@
             </Label>
             <AnchorPane fx:id="anchorError" layoutX="300.0" layoutY="104.0" prefHeight="25.0" prefWidth="290.0" style="-fx-background-color: red; -fx-background-radius: 20;" visible="false">
                <children>
-                  <Label fx:id="labErorr" layoutX="13.0" layoutY="4.0" prefHeight="15.0" prefWidth="266.0" text="The username or password you entered is invalid" textFill="WHITE">
+                  <Label fx:id="labErorr" alignment="CENTER" layoutX="13.0" layoutY="4.0" prefHeight="15.0" prefWidth="266.0" text="label" textFill="WHITE">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="11.0" />
                      </font>
@@ -269,7 +269,7 @@
             <ImageView fx:id="i6" fitHeight="25.0" fitWidth="25.0" layoutX="575.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="i10" fitHeight="25.0" fitWidth="25.0" layoutX="741.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="i5" fitHeight="25.0" fitWidth="25.0" layoutX="420.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true" />
-            <TextField fx:id="iIdOfApproval" layoutX="539.0" layoutY="189.0" prefHeight="25.0" prefWidth="194.0" />
+            <TextField fx:id="iIdOfApproval" layoutX="539.0" layoutY="189.0" prefHeight="25.0" prefWidth="194.0" promptText="Licence key" style="-fx-border-color: #05e39c;" />
          </children>
       </AnchorPane>
       <ImageView fitHeight="158.0" fitWidth="164.0" layoutX="56.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
@@ -280,6 +280,16 @@
       <Label alignment="CENTER" layoutX="56.0" layoutY="259.0" prefHeight="51.0" prefWidth="178.0" text="Welcome" textFill="WHITE">
          <font>
             <Font name="Arial Rounded MT Bold" size="35.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="1163.0" layoutY="4.0" onMouseClicked="#onExit" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/eror.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="32.0" layoutY="320.0" prefHeight="51.0" prefWidth="258.0" text="The best preparation for tomorrow is doing your best today .&#10;" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="10.0" />
          </font>
       </Label>
    </children>

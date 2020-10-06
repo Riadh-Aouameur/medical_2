@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="302.0" prefWidth="673.0" style="-fx-background-color: #fff; -fx-border-color: #00bcd4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medical.ControllerAAdd">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="321.0" prefWidth="673.0" style="-fx-background-color: #fff; -fx-border-color: #00bcd4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medical.ControllerAAdd">
    <children>
       <TextField fx:id="fFirstName" layoutX="123.0" layoutY="110.0" prefHeight="31.0" prefWidth="195.0">
          <font>
@@ -75,7 +75,7 @@
             <Font name="Arial Rounded MT Bold" size="15.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="iFemale" layoutX="123.0" layoutY="253.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="143.0" text="Female" textFill="#1632cc">
+      <RadioButton fx:id="iFemale" layoutX="205.0" layoutY="219.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="143.0" text="Female" textFill="#1632cc">
          <toggleGroup>
             <ToggleGroup fx:id="group" />
          </toggleGroup>
@@ -84,16 +84,25 @@
             <Font name="Arial Rounded MT Bold" size="15.0" />
          </font>
       </RadioButton>
-      <JFXButton layoutX="513.0" layoutY="229.0" onAction="#onADDList" prefHeight="47.0" prefWidth="129.0" style="-fx-background-color: #00bcd4;" text="ADD" textFill="WHITE">
+      <JFXButton layoutX="513.0" layoutY="249.0" onAction="#onADDList" prefHeight="47.0" prefWidth="129.0" style="-fx-background-color: #00bcd4;" text="ADD" textFill="WHITE">
          <font>
             <Font name="Arial Rounded MT Bold" size="17.0" />
          </font>
       </JFXButton>
-      <DatePicker fx:id="fAppointment" layoutX="448.0" layoutY="110.0" prefHeight="31.0" prefWidth="195.0" />
+      <DatePicker fx:id="fAppointment" editable="false" layoutX="448.0" layoutY="110.0" prefHeight="31.0" prefWidth="195.0" />
       <Label layoutX="329.0" layoutY="115.0" prefHeight="22.0" prefWidth="111.0" text="Appointment " textFill="#1632cc">
          <font>
             <Font name="Arial Rounded MT Bold" size="15.0" />
          </font>
       </Label>
+      <AnchorPane fx:id="paneMassage" layoutX="20.0" layoutY="257.0" prefHeight="31.0" prefWidth="444.0" style="-fx-background-color: red; -fx-background-radius: 10;" visible="false">
+         <children>
+            <Label fx:id="message" layoutX="14.0" layoutY="8.0" prefHeight="17.0" prefWidth="415.0" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

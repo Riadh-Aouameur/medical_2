@@ -22,6 +22,8 @@ public class ControllerModify implements Initializable {
     public RadioButton iFemale;
     public RadioButton iMale;
     public TextField fNumber;
+    public AnchorPane paneMassage;
+    public Label message;
     private double x;
     private double y;
 
@@ -126,7 +128,7 @@ public class ControllerModify implements Initializable {
     }
 
     public void onADDList(ActionEvent actionEvent) {
-
+        if (!fFirstName.getText().isEmpty() && !fLastName.getText().isEmpty()){
             observableList.remove(patientForWaitingRoom);
             patientForWaitingRoom.setFirstName(fFirstName.getText());
             patientForWaitingRoom.setLastName(fLastName.getText());
@@ -134,9 +136,15 @@ public class ControllerModify implements Initializable {
             patientForWaitingRoom.setGender(gender);
             observableList.add(patientForWaitingRoom.getNumber()-1,patientForWaitingRoom);
             db.update(patientForWaitingRoom);
+        }else {
+            message.setText("Must Fill Empty Fields");
+            paneMassage.setVisible(true);
+
+        }
 
 
-//Todo Message Error
+
+
 
     }
 }
